@@ -6,6 +6,12 @@ class Review
     attr_accessor :name
 
     ALL=[]
+    OUTSTANDING = []
+    ABOVE_AVERAGE = []
+    AVERAGE = []
+    BELOW_AVERAGE = []
+    POOR = []
+    HORRIBLE = []
     
     def initialize(name)
         @name = name

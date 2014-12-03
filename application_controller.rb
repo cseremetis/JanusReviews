@@ -20,6 +20,7 @@ class MyApp < Sinatra::Base
     post '/CreateReview' do
         @review=Review.new(params[:productName])
         @review.name
+
         redirect('/ExistingReviews')
     end
 end
