@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
      <head>
@@ -19,6 +19,11 @@
                     <div class="col-md">
                         <p class="navbar-text navbar-left">
                             <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p class="navbar-text navbar-left">
+                            <a href="CreateReview" class="navbar-link">Review an Item</a>
                         </p>
                     </div>
                 </div>
@@ -42,29 +47,32 @@
                 </div>
             </div>
 
-            <!--this is where the input name text box is located-->
+            <!--this is where the user can input the product name and review-->
             <div class="row">
-                <div class="col-md text-center">
-                   <form class="input" action="/CreateReview" method="POST">
+                <form class="input" action="/CreateReview" method="POST">
+                    <div class="col-md text-center">
                         <input type="text" name="productName">
+                    </div>
+                    <div class="col-md text-center">
+                        <p class="inputLabel">Rating:</p>
+                        <input type="radio" name="rating" value="Outstanding" checked><img src="photos/happy5.png" class="img-circle">
+                        <input type="radio" name="rating" value="above_average" checked><img src="photos/happy3.png" class="img-circle">
+                        <input type="radio" name="rating" value="average" checked><img src="photos/happy6.png" class="img-circle">
+                        <input type="radio" name="rating" value="below-average" checked><img src="photos/happy1.png" class="img-circle">
+                        <input type="radio" name="rating" value="poor" checked><img src="photos/happy4.png" class="img-circle">
+                        <input type="radio" name="rating" value="horrible" checked><img src="photos/happy2.png" class="img-circle">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md text-center">
                         <input type="Submit">
-                    </form>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md text-center">
-                    <p class="inputLabel">Rating:</p>
-                </div>
-
-                <div class="col-md text-center">
-                    <img src="photos/happy5.png" class="img-circle">
-                    <img src="photos/happy3.png" class="img-circle">
-                    <img src="photos/happy6.png" class="img-circle">
-                    <img src="photos/happy1.png" class="img-circle">
-                    <img src="photos/happy4.png" class="img-circle">
-                    <img src="photos/happy2.png" class="img-circle">
-                </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </form>
             </div>
         </div>
     </body>
