@@ -1,4 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<!--created November 30, 2014 by Christian Seremetis and Daniel Greenberg-->
 
 <html>
     <head>
@@ -38,9 +40,13 @@
             <br>
             <div class="row">
                 <div class="col-md text-centered">
-                    <%@allProducts.each do |reviewableProducts|%>
-                        <p><strong><%=reviewableProducts.name%></strong></p    
-                    <%end%>
+                    <!--<a href="/SpecificReview">-->
+                        <form class="button" action="/ViewReview" method="POST">
+                            <%@allProducts.each do |reviewableProducts|%>
+                                <p><strong><%=reviewableProducts.name%></strong></p>
+                            <%end%>
+                        </form>
+                    <!--</a>-->
                 </div>
             </div>
         </div>

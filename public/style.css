@@ -1,17 +1,24 @@
 /*style sheets for Recent Reviews*/
-
-.img-circle{
-	height: 100px;
-	width: 100px;
-}
+/*created November 30, 2014 by Christian Seremetis and Daniel Greenberg*/
 
 body{
     background-color: gray;
     padding-top: 70px;
+    background-image: url(http://www.fovitec.com/images/Product/large/SP40-044.jpg);
 }
 
 h1{
     color: blue;
+}
+
+.inputLabel{
+    padding-top: 100px;
+    font-size: 20px;
+}
+
+.img-circle{
+    height: 100px;
+    width: 100px;
 }
 
 #button1{
@@ -21,15 +28,6 @@ h1{
 #navbar{
     height: 20px;
 }
-
-.inputLabel{
-    padding-top: 100px;
-    font-size: 20px;
-}
-
-
-
-
 
 
 
