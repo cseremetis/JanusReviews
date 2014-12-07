@@ -17,7 +17,7 @@ class MyApp < Sinatra::Base
     end
 
     get '/ExistingReviews' do
-        @allProducts=Review.all
+        DATABASE.get_data
         erb(:ExistingReviews)
     end
 
