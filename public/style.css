@@ -9,12 +9,15 @@ body{
   -o-background-size: cover;
   background-size: cover;
   color: white;
-  /*  font-family: 'Pacifico', cursive;*/
 }
 
 h1{
   color: white;
   font-family: 'Pacifico', cursive;
+}
+
+.updateButtons{
+  font-size: 20px;
 }
 
 .input{
