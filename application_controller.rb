@@ -17,7 +17,7 @@ class MyApp < Sinatra::Base
     end
 
     get '/ExistingReviews' do
-        DATABASE.get_data
+        @reviews = DATABASE.get_data
         erb(:ExistingReviews)
     end
 
@@ -26,7 +26,6 @@ class MyApp < Sinatra::Base
     end
 
     post '/CreateReview' do
-        @review=Review.new(params[:productName])
         DATABASE.add("Reviews", {:productName => params[:productName], :rating => params[:rating]})
         
         puts DATABASE.print_data
@@ -34,10 +33,6 @@ class MyApp < Sinatra::Base
 
         redirect('/ExistingReviews')
     end
-
-    #post '/ViewReview' do
-     #   $name = @review.name
-    #end
 end
 
 

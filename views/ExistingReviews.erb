@@ -40,13 +40,9 @@
             <br>
             <div class="row">
                 <div class="col-md text-centered">
-                    <!--<a href="/SpecificReview">-->
-                        <form class="button" action="/ViewReview" method="POST">
-                            <%@allProducts.each do |reviewableProducts|%>
-                                <p><strong><%=reviewableProducts.name%></strong></p>
-                            <%end%>
-                        </form>
-                    <!--</a>-->
+                    <%@reviews.each do |review|%>
+                        <h2><%=review.to_s%></h2>
+                    <%end%>
                 </div>
             </div>
         </div>
