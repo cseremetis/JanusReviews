@@ -41,7 +41,8 @@
             <div class="row">
                 <div class="col-md text-centered">
                     <%@reviews.each do |review|%>
-                        <h2><%=review.to_s%></h2>
+                        <h2><%=review[1]["productName"]%></h2>
+                        <h3><%=review[1]["rating"]%></h3>
                     <%end%>
                 </div>
             </div>
