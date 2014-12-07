@@ -2,7 +2,6 @@ require 'bundler'
 require 'firebase'
 require_relative './models/firebase.rb'
 
-require_relative './models/reviews.rb'
 
 #created November 30, 2014 by Christian Seremetis and Daniel Greenberg
 
