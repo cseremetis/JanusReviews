@@ -46,7 +46,7 @@
                     <%@reviews.each do |review|%>
                     <form class="input" action="/UpdateReview" method="POST">
                         <p>
-                            <input type="button" value=<%=review[1]["productName"]%> class="updateButtons">
+                            <input type="button" class="updateButtons" value=<%=review[1]["productName"]%>>
                             <%end%>
                         </p>
                     </form>

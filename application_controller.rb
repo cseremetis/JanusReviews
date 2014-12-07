@@ -26,19 +26,16 @@ class MyApp < Sinatra::Base
     end
 
     post '/CreateReview' do
-        @ratings=[]
-        @ratings.push(params[:rating])
-        puts @ratings
 
-        DATABASE.add("Reviews", {:productName => params[:productName], :rating => @ratings})
+        DATABASE.add("Reviews", {:productName => params[:productName], :ratings => {:outstanding => 0, :above_average => 0, :average => 0, :below_average => 0, :poor => 0, :horrible => 0}})
 
         redirect('/ExistingReviews')
     end
 
     post '/UpdateReview' do
+        redirect('/ReviewTemplate')
     end 
 end
-
 
 
 
