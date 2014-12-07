@@ -26,7 +26,6 @@ class MyApp < Sinatra::Base
     end
 
     post '/CreateReview' do
-        @review=Review.new(params[:productName])
         DATABASE.add("Reviews", {:productName => params[:productName], :rating => params[:rating]})
         
         puts DATABASE.print_data
