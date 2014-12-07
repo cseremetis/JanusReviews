@@ -8,11 +8,11 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: white;
+    font-family: 'Pacifico', cursive;
 }
 
-#faces{
-	background-color: white;
-}
+
 
 
 h1{
