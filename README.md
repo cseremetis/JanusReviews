@@ -4,13 +4,14 @@ ReviewSite
 Programmers: Christian Seremetis and Daniel Greenberg
 Created: November 30, 2014
 
-Last updated: December 3, 2014
+Last updated: December 7, 2014
 
 December 3, 2014: Files created: ReviewTemplate.erb
 
-Forms most recently updated: style.css, ExistingReviews.erb,
-CreateReview.erb
+December 7, 2013: Files created: firebase.rb
 
-Gems used: Sinatra Framework, Shotgun, Rackup, and Pry
+Forms most recently updated: CreateReview.rb, application_controller.rb
 
-Databases used: SQLite3
+Gems used: Sinatra Framework, Shotgun, Rackup, firebase, and Pry
+
+Databases used: Firebase
