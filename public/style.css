@@ -3,12 +3,23 @@
 
 body{
     padding-top: 70px;
-    background-image: url(http://www.fovitec.com/images/Product/large/SP40-044.jpg);
+    background: url(http://d13pix9kaak6wt.cloudfront.net/background/webdesign_1338484318_44.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-h1{
-    color: blue;
+#faces{
+	background-color: white;
 }
+
+
+h1{
+    color: white;
+    font-family: 'Pacifico', cursive;
+}
+
 
 .inputLabel{
     padding-top: 100px;
