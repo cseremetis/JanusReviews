@@ -8,7 +8,7 @@ Last updated: December 7, 2014
 
 December 3, 2014: Files created: ReviewTemplate.erb
 
-December 7, 2013: Files created: firebase.rb, background photo
+December 7, 2013: Files created: firebase.rb, background photo.
 
 Forms most recently updated: CreateReview.rb, application_controller.rb, ExistingReviews.erb
 
