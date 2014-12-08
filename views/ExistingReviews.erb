@@ -43,10 +43,10 @@
 
                     <!--creates buttons for each review, which redirects the user to the ReviewTemplate page-->
                     
-                    <%@reviews.each do |review|%>
+                    <%@reviews.each do |a|%>
                     <form class="input" action="/UpdateReview" method="POST">
                         <p>
-                            <input type="button" class="updateButtons" value=<%=review[1]["productName"]%>>
+                            <input type="submit" value="<%=a[1]["productName"]%>">
                             <%end%>
                         </p>
                     </form>

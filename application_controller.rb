@@ -33,7 +33,7 @@ class MyApp < Sinatra::Base
     end
 
     post '/UpdateReview' do
-        redirect('/ReviewTemplate')
+        erb(:ReviewTemplate)
     end 
 end
 
