@@ -3,7 +3,7 @@ require 'firebase'
 require_relative './models/firebase.rb'
 
 
-#created November 30, 2014 by Christian Seremetis and Daniel Greenberg
+#created November 30, 2014 by Christian Seremetis
 
 DATABASE = FlatironBase.new("https://scorching-heat-1628.firebaseio.com")
 
@@ -52,11 +52,12 @@ class MyApp < Sinatra::Base
         @reviews=DATABASE.get_data
 
         @reviews.each do |review|
-            if params[:name] == review[1]["productName"] then
+            if (params[:name]).downcase == (review[1]["productName"]).downcase
                 @name = review[1]["productName"]
-                #@opinions = review[2][:rating]
+                @opinion = review[1]["rating"]
             end
         end
+
         erb(:ReviewTemplate)
     end 
 end
