@@ -49,10 +49,12 @@ class MyApp < Sinatra::Base
     end
  
     post '/UpdateReview' do
-        $reviews.each do |review|
-            if params[:name] == review[1][:productName] then
-                @name = review[1][:productName]
-                @opinions = review[2][:rating]
+        @reviews=DATABASE.get_data
+
+        @reviews.each do |review|
+            if params[:name] == review[1]["productName"] then
+                @name = review[1]["productName"]
+                #@opinions = review[2][:rating]
             end
         end
         erb(:ReviewTemplate)
