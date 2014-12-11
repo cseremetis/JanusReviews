@@ -3,7 +3,7 @@ require 'firebase'
 require_relative './models/firebase.rb'
 
 
-#created November 30, 2014 by Christian Seremetis
+#created November 30, 2014 by Christian Seremetis and Daniel Greenberg
 
 DATABASE = FlatironBase.new("https://scorching-heat-1628.firebaseio.com")
 
@@ -27,22 +27,26 @@ class MyApp < Sinatra::Base
         erb(:ReviewTemplate)
     end
 
+    get '/Error' do
+        erb(:Error)
+    end
+
     post '/CreateReview' do
 
         puts params[:rating]
 
-        if params[:rating] == "outstanding"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 1, :above_average => 0, :average => 0, :below_average => 0, :poor => 0, :horrible => 0}})
-        elsif params[:rating] == "above_average"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 0, :above_average => 1, :average => 0, :below_average => 0, :poor => 0, :horrible => 0}})
-        elsif params[:rating] == "average"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 0, :above_average => 0, :average => 1, :below_average => 0, :poor => 0, :horrible => 0}})
-        elsif params[:rating] == "below_average"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 0, :above_average => 0, :average => 0, :below_average => 1, :poor => 0, :horrible => 0}})
-        elsif params[:rating] == "poor"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 0, :above_average => 0, :average => 0, :below_average => 0, :poor => 1, :horrible => 0}})
+        if params[:rating] == "a"
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
+        elsif params[:rating] == "b"
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
+        elsif params[:rating] == "c"
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
+        elsif params[:rating] == "d"
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
+        elsif params[:rating] == "e"
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
         else
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:outstanding => 0, :above_average => 0, :average => 0, :below_average => 0, :poor => 0, :horrible => 1}})
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
         end
             
         redirect('/ExistingReviews')
@@ -52,7 +56,8 @@ class MyApp < Sinatra::Base
         @reviews=DATABASE.get_data
 
         @reviews.each do |review|
-            if (params[:name]).downcase == (review[1]["productName"]).downcase
+            if (params[:name]).downcase == (review[1]["productName"]).downcase then
+
                 @name = review[1]["productName"]
                 @opinion = review[1]["rating"]
             end

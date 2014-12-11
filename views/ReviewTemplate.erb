@@ -4,13 +4,59 @@
 <!--this is used to view and update existing reviews-->
 <html>
     <head>
-        <title>Update Review</title>
+        <title>Recent Reviews</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     
     <body>
-        <h1><%=@name%></h1>
-        <h2><%=@opinion%></h2>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <p class="navbar-text navbar-left">
+                             <a href="about" class="navbar-link">Home</a>
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p class="navbar-text navbar-left">
+                            <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p class="navbar-text navbar-left">
+                             <a href="CreateReview" class="navbar-link">Review A New Item</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <h1><%=@name%></h1>
+            </div>
+            <div class="row">
+                <div class="col-md text-centered">
+                    <p>
+                        <h2 class="viewed_reviews">
+                            <%if @name==nil%>
+                                <%="The Product You Looked for does not exist. Please try again."%>
+                            <%else%>
+                                <%mutableReviews = @opinion.values%>
+                                <%mutableReviews.each do |reviews|%>
+                                    <%=reviews%>
+                                <%end%>
+                            <%end%>
+                        </h2>
+                    </p>
+                </div>
+            </div>
+        </div>  
     </body>
 </html>
+
+
+
+
+
+
