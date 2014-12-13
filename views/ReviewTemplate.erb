@@ -35,22 +35,44 @@
             <div class="row">
                 <h1><%=@name%></h1>
             </div>
+            <br>
+            <br>
+            <br>
             <div class="row">
                 <div class="col-md text-centered">
-                    <p>
-                        <h2 class="viewed_reviews">
+                     <h2 class="viewed_reviews">
                             <%if @name==nil%>
-                                <%="The Product You Looked for does not exist. Please try again."%>
+                                <p>The Product you searched does not exist. Please reword your search and try again</p>
+                                <img src="http://a.dilcdn.com/bl/wp-content/uploads/sites/8/babyzone/2013/04/baby-boy-crying-photo-420x420-ts-56570356.jpg" id="baby">
                             <%else%>
-                                <%mutableReviews = @opinion.values%>
-                                <%mutableReviews.each do |reviews|%>
-                                    <%=reviews%>
-                                <%end%>
+                                <div class="faces">             
+                                <img src="photos/happy5.png" class="img-circle">
+                                <img src="photos/happy3.png" class="img-circle">
+                                <img src="photos/happy6.png" class="img-circle">
+                                <img src="photos/happy1.png" class="img-circle">
+                                <img src="photos/happy4.png" class="img-circle">
+                                <img src="photos/happy2.png" class="img-circle">
+                            </div>
+                            <br>
+
+                            <!--this is where the numbers for existing reviews are displayed-->
+                            <%mutableReviews = @opinion.values%>
+                            <%mutableReviews.each do |reviews|%>
+                            <%=reviews%>
                             <%end%>
-                        </h2>
-                    </p>
+                        
+                    </h2>
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <form class="input" action="AddReview" method="POST" id="updateButton">
+                    <input type="submit" value="Review This Item">
+                </form>
+            </div>
+            <%end%>
         </div>  
     </body>
 </html>

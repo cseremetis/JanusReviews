@@ -12,8 +12,9 @@ body{
 }
 
 h1{
-  color: white;
-1}
+  text-align: center;
+}
+
 
 .input{
   color: black;
@@ -32,16 +33,34 @@ h1{
 }
 
 .viewed_reviews{
-  padding-top: 200px;
+  text-align: center;
 }
 
 #button1{
-    padding-top: 100px;
+   padding-top: 100px;
 }
 
 #navbar{
     height: 20px;
 }
+
+#baby{
+  text-align: center;
+}
+
+#numbers{
+  text-align: center;
+  padding-right: 200px;
+}
+
+#updateButton{
+  text-align: center;
+}
+
+#existing{
+  text-align: left;
+}
+
 
 
 
