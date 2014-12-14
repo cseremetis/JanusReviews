@@ -42,7 +42,7 @@ class MyApp < Sinatra::Base
                 @name = review[1]["productName"]
                 @object1 = review[1]["rating"]
 
-                if params[:rating] == "a" then 
+                if params[:rating] == "a"  
                     @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
                 elsif params[:rating] == "b"
             
@@ -96,14 +96,14 @@ class MyApp < Sinatra::Base
             @reviews = DATABASE.get_data
 
             @reviews.each do |a|
-                if @name == a[1]["productName"] then 
+                if @name == a[1]["productName"]  
                     puts a[0]
                     @id = a[0]
                     DATABASE.remove_by_id(@id)
                 end
             end
 
-            if @NewReview != nil then 
+            if @NewReview != nil  
                DATABASE.add("Reviews", {:productName => @name, :rating => @NewReview})
             end
         end
@@ -116,7 +116,7 @@ class MyApp < Sinatra::Base
         @reviews=DATABASE.get_data
 
         @reviews.each do |review|
-            if (params[:name]).downcase == (review[1]["productName"]).downcase then
+            if (params[:name]).downcase == (review[1]["productName"]).downcase 
 
                 @name = review[1]["productName"]
                 @opinion = review[1]["rating"]
