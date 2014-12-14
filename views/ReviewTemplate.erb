@@ -46,32 +46,42 @@
                                 </form>           
                         <%else%>
 
-                        <%@MutableReviews = @opinions.values%>
+                            <%@MutableReviews = @opinion.values%>
                             <div class="row">
                                 <h1><%=@name.upcase%></h1>
                             </div>
                             <br>
                             <br>
-                            <div class="faces">             
-                            <img src="photos/happy5.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[0]%>
-                            <img src="photos/happy3.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[1]%>
-                            <img src="photos/happy6.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[2]%>
-                            <img src="photos/happy1.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[3]%>
-                            <img src="photos/happy4.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[4]%>
-                            <img src="photos/happy2.png" class="img-circle">
-                            <br>
-                            <%=@MutableReviews[5]%>
+                            <div class="col-xs-2">
+                                <img src="photos/happy5.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[0]%>
                             </div>
+                            <div class="col-xs-2">
+                                <img src="photos/happy3.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[1]%>
+                            </div> 
+                            <div class="col-xs-2">
+                                <img src="photos/happy6.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[2]%>
+                            </div>  
+                            <div class="col-xs-2">
+                                <img src="photos/happy1.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[3]%>
+                            </div>              
+                            <div class="col-xs-2">
+                                <img src="photos/happy4.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[4]%>
+                            </div>
+                            <div class="col-xs-2">
+                                <img src="photos/happy2.png" class="img-circle">
+                                <br>
+                                <%=@MutableReviews[5]%>
+                            </div>  
                         <%end%>
                     </h2>
                 </div>
