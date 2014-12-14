@@ -30,16 +30,12 @@ class MyApp < Sinatra::Base
         erb(:ReviewTemplate)
     end
 
-    get '/Error' do
-        erb(:Error)
-    end
-
     post '/CreateReview' do
 
         @reviews = DATABASE.get_data
 
         @reviews.each do |review|
-            if (params[:productName]).downcase == (review[1]["productName"]).downcase
+            if (params[:productName]).downcase.strip == (review[1]["productName"]).downcase.strip
 
                 @name = review[1]["productName"]
                 @object1 = review[1]["rating"]
@@ -118,7 +114,7 @@ class MyApp < Sinatra::Base
         @reviews=DATABASE.get_data
 
         @reviews.each do |review|
-            if (params[:name]).downcase == (review[1]["productName"]).downcase 
+            if (params[:name]).downcase.strip == (review[1]["productName"]).downcase.strip 
 
                 @name = review[1]["productName"]
                 @opinion = review[1]["rating"]
