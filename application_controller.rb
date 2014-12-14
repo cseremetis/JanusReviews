@@ -7,9 +7,12 @@ require_relative './models/firebase.rb'
 
 DATABASE = FlatironBase.new("https://scorching-heat-1628.firebaseio.com")
 
-
+    $x=0
 
 class MyApp < Sinatra::Base
+
+
+
     get '/about' do
         erb :index
     end
@@ -38,49 +41,56 @@ class MyApp < Sinatra::Base
         @reviews.each do |review|
             if (params[:productName]).downcase == (review[1]["productName"]).downcase then
 
+                @name = review[1]["productName"]
                 @object1 = review[1]["rating"]
             end
         end
 
         if params[:rating] == "a"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
+            DATABASE.add("#{$x+=1}", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "b"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
+            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "c"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
+            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "d"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
+            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
         elsif params[:rating] == "e"
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
+            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
         else
-            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
+            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
         end
 
         #creates a new hash made up of the values of the two previous hashes added together
-        a1 = @object1["a"]
-        a2 = @object2[:a]
-        b1 = @object1["b"]
-        b2 = @object2[:b]
-        c1 = @object1["c"]
-        c2 = @object2[:c]
-        d1 = @object1["d"]
-        d2 = @object2[:d]
-        e1 = @object1["e"]
-        e2 = @object2[:e]
-        f1 = @object1["f"]
-        f2 = @object2[:f]
 
-        @NewReview = {:a => a1.to_i + a2.to_i, :b => b1.to_i + b2.to_i, :c => c1.to_i + c2.to_i, :d => d1.to_i + d2.to_i, :e => e1.to_i + e2.to_i, :f => f1.to_i + f2.to_i}
+        if @object1 == nil 
+            @NewReview = @object2
+        else
+            a1 = @object1["a"]
+            a2 = @object2[:a]
+            b1 = @object1["b"]
+            b2 = @object2[:b]
+            c1 = @object1["c"]
+            c2 = @object2[:c]
+            d1 = @object1["d"]
+            d2 = @object2[:d]
+            e1 = @object1["e"]
+            e2 = @object2[:e]
+            f1 = @object1["f"]
+            f2 = @object2[:f]
 
-        puts @object1
-        puts @object2
-        puts @NewReview
+            @NewReview = {:a => a1.to_i + a2.to_i, :b => b1.to_i + b2.to_i, :c => c1.to_i + c2.to_i, :d => d1.to_i + d2.to_i, :e => e1.to_i + e2.to_i, :f => f1.to_i + f2.to_i}
+
+            puts @object1
+            puts @object2
+            puts @NewReview
+
+        end
 
         redirect('/ExistingReviews')
     end

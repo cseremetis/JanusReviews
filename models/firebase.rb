@@ -64,7 +64,7 @@ class FlatironBase
   end
 end
 
-
+@x = 0
 
 
 
