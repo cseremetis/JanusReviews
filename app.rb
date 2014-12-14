@@ -95,7 +95,7 @@ class MyApp < Sinatra::Base
             @reviews = DATABASE.get_data
 
             @reviews.each do |a|
-                if @name == a[1]["productName"]  
+                if @name == (a[1]["productName"]).downcase.strip  
                     puts a[0]
                     @id = a[0]
                     DATABASE.remove_by_id(@id)
