@@ -15,7 +15,7 @@ class MyApp < Sinatra::Base
     end
 
     get '/about' do
-        erb :About 
+        erb :about 
     end
 
     get '/CreateReview' do
@@ -95,7 +95,7 @@ class MyApp < Sinatra::Base
             @reviews = DATABASE.get_data
 
             @reviews.each do |a|
-                if @name == (a[1]["productName"]).downcase.strip  
+                if @name == a[1]["productName"]  
                     puts a[0]
                     @id = a[0]
                     DATABASE.remove_by_id(@id)
@@ -108,7 +108,7 @@ class MyApp < Sinatra::Base
         end
 
 
-        redirect('/ReviewTemplate')
+        redirect('/ExistingReviews')
     end
  
     post '/UpdateReview' do
