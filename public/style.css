@@ -32,6 +32,11 @@ h1{
     width: 100px;
 }
 
+.photo{
+  height: 100px;
+  width: 100px;
+}
+
 .viewed_reviews{
   text-align: center;
 }
@@ -61,6 +66,9 @@ h1{
   text-align: left;
 }
 
+.daniel_bio{
+  font-size: 43px;
+}
 
 
 
