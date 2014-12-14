@@ -43,8 +43,7 @@ class MyApp < Sinatra::Base
 
                 if params[:rating] == "a"  
                     @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
-                elsif params[:rating] == "b"
-            
+                elsif params[:rating] == "b"            
                     @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
                 elsif params[:rating] == "c"
                     @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
@@ -92,19 +91,17 @@ class MyApp < Sinatra::Base
 
             @NewReview = {:a => a1.to_i + a2.to_i, :b => b1.to_i + b2.to_i, :c => c1.to_i + c2.to_i, :d => d1.to_i + d2.to_i, :e => e1.to_i + e2.to_i, :f => f1.to_i + f2.to_i}
 
-            @reviews = DATABASE.get_data
+            reviews = DATABASE.get_data
 
-            @reviews.each do |a|
-                if @name == a[1]["productName"]  
+            reviews.each do |a|
+                if @name.downcase.strip == (a[1]["productName"]).downcase.strip  
                     puts a[0]
-                    @id = a[0]
-                    DATABASE.remove_by_id(@id)
+                    id = a[0]
+                    DATABASE.remove_by_id(id)
                 end
-            end
-
-            if @NewReview != nil  
-               DATABASE.add("Reviews", {:productName => @name, :rating => @NewReview})
-            end
+            end 
+                
+            DATABASE.add("Reviews", {:productName => @name, :rating => @NewReview})
         end
 
 

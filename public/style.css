@@ -50,6 +50,7 @@ h1{
 
 #baby{
   text-align: center;
+  height: 400px;
 }
 
 #opinions{
@@ -58,10 +59,10 @@ h1{
 
 #updateButton{
   text-align: center;
-  font-size: 14px;
-  width: 300px;
-  height: 20px; 
-  margin-top: 30px;
+  font-size: 20px;
+  width: 400px;
+  height: 40px; 
+  margin-top: 50px;
 }
 
 #existing{

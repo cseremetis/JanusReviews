@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md">
                         <p class="navbar-text navbar-left">
-                             <a href="CreateReview" class="navbar-link">Review A New Item</a>
+                             <a href="CreateReview" class="navbar-link">Review An Item</a>
                         </p>
                     </div>
                 </div>
@@ -62,12 +62,11 @@
                 <br>
 
                 <div class="col-md text-centered">
-                        <%@reviews.each do |a|%>
+                    <%@reviews.each do |a|%>
                         <div class="col-md">
                             <h3><%=(a[1]["productName"]).capitalize%><h3>
                         </div>     
-                        <%end%>
-                    </p>
+                    <%end%>
                 </div>
             </div>
         </div>

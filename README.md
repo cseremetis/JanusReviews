@@ -14,8 +14,8 @@ December 3, 2014: Files created: ReviewTemplate.erb
 
 December 7, 2013: Files created: firebase.rb, background photo.
 
-Forms most recently updated: application_controller.rb
+Files most recently updated: application_controller.rb
 
-Gems used: Sinatra Framework, Shotgun, Rackup, firebase, and Pry
+Gems used: Sinatra Framework, Shotgun, Rackup, firebase, heroku, and Pry
 
 Databases used: Firebase
