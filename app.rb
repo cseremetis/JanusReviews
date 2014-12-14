@@ -15,7 +15,7 @@ class MyApp < Sinatra::Base
     end
 
     get '/about' do
-        erb :about 
+        erb :About 
     end
 
     get '/CreateReview' do
