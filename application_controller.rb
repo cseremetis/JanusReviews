@@ -1,6 +1,7 @@
 require 'bundler'
 require 'firebase'
 require_relative './models/firebase.rb'
+require 'sinatra'
 
 
 #created November 30, 2014 by Christian Seremetis and Daniel Greenberg
