@@ -108,7 +108,7 @@ class MyApp < Sinatra::Base
         end
 
 
-        redirect('/ExistingReviews')
+        redirect('/ReviewTemplate')
     end
  
     post '/UpdateReview' do
