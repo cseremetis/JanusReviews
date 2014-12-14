@@ -7,8 +7,6 @@ require_relative './models/firebase.rb'
 
 DATABASE = FlatironBase.new("https://scorching-heat-1628.firebaseio.com")
 
-    $x=0
-
 class MyApp < Sinatra::Base
 
 
@@ -36,34 +34,43 @@ class MyApp < Sinatra::Base
 
     post '/CreateReview' do
 
-        @reviews=DATABASE.get_data
+        @reviews = DATABASE.get_data
 
         @reviews.each do |review|
-            if (params[:productName]).downcase == (review[1]["productName"]).downcase then
+            if (params[:productName]).downcase == (review[1]["productName"]).downcase
 
                 @name = review[1]["productName"]
                 @object1 = review[1]["rating"]
+
+                if params[:rating] == "a" then 
+                    @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
+                elsif params[:rating] == "b"
+            
+                    @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
+                elsif params[:rating] == "c"
+                    @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
+                elsif params[:rating] == "d"
+                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
+                elsif params[:rating] == "e"
+                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
+                else
+                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
+                end
             end
         end
 
         if params[:rating] == "a"
-            DATABASE.add("#{$x+=1}", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
-            @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
         elsif params[:rating] == "b"
-            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
-            @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
         elsif params[:rating] == "c"
-            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
-            @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
         elsif params[:rating] == "d"
-            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
-            @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
         elsif params[:rating] == "e"
-            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
-            @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
         else
-            DATABASE.add("#{$x += 1}", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
-            @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
+            DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
         end
 
         #creates a new hash made up of the values of the two previous hashes added together
@@ -86,11 +93,21 @@ class MyApp < Sinatra::Base
 
             @NewReview = {:a => a1.to_i + a2.to_i, :b => b1.to_i + b2.to_i, :c => c1.to_i + c2.to_i, :d => d1.to_i + d2.to_i, :e => e1.to_i + e2.to_i, :f => f1.to_i + f2.to_i}
 
-            puts @object1
-            puts @object2
-            puts @NewReview
+            @reviews = DATABASE.get_data
 
+            @reviews.each do |a|
+                if @name == a[1]["productName"] then 
+                    puts a[0]
+                    @id = a[0]
+                    DATABASE.remove_by_id(@id)
+                end
+            end
+
+            if @NewReview != nil then 
+               DATABASE.add("Reviews", {:productName => @name, :rating => @NewReview})
+            end
         end
+
 
         redirect('/ExistingReviews')
     end
@@ -112,20 +129,11 @@ class MyApp < Sinatra::Base
     post '/AddReview' do
         redirect('/CreateReview')
     end
+
+    post '/Defer' do 
+        redirect('/CreateReview')
+    end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

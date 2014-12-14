@@ -62,9 +62,9 @@ class FlatironBase
     @firebase.delete(table_name)
     puts "Table deleted."
   end
+  
 end
 
-@x = 0
 
 
 

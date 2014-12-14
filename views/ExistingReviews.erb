@@ -44,6 +44,7 @@
 
                     <!--allows for a user to search a specific item to see reviews for-->
 
+                    <p>Search And View Our Reviews Here!</p>
                     <form class="input" action="/UpdateReview" method="POST">
                         <input type="text" name="name">
                         <input type="submit" value="View Item">
@@ -59,7 +60,7 @@
                         <%@reviews.each do |a|%>
 
                         <div class="col-md">
-                            <%=a[1]["productName"]%>
+                            <h3><%=(a[1]["productName"]).capitalize%><h3>
                         </div>
                             
                         <%end%>

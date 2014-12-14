@@ -33,18 +33,23 @@
         </nav>
         <div class="container">
             <div class="row">
-                <h1><%=@name%></h1>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="row">
                 <div class="col-md text-centered">
                      <h2 class="viewed_reviews">
                             <%if @name==nil%>
                                 <p>The Product you searched does not exist. Please reword your search and try again</p>
                                 <img src="http://a.dilcdn.com/bl/wp-content/uploads/sites/8/babyzone/2013/04/baby-boy-crying-photo-420x420-ts-56570356.jpg" id="baby">
+                                <br>
+                                <br>
+                                <br>
+                                <form class="input" action="/Defer" method="POST" id="updateButton">
+                                    <input type="submit" value="or CLICK HERE to create a new review">
+                                </form>           
                             <%else%>
+                                <div class="row">
+                                    <h1><%=@name.upcase%></h1>
+                                </div>
+                                <br>
+                                <br>
                                 <div class="faces">             
                                 <img src="photos/happy5.png" class="img-circle">
                                 <img src="photos/happy3.png" class="img-circle">
