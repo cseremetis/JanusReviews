@@ -9,10 +9,12 @@ DATABASE = FlatironBase.new("https://scorching-heat-1628.firebaseio.com")
 
 class MyApp < Sinatra::Base
 
-
+    get '/' do
+        erb :index
+    end
 
     get '/about' do
-        erb :index
+        erb :about 
     end
 
     get '/CreateReview' do
