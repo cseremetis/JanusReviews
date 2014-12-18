@@ -38,37 +38,28 @@ class MyApp < Sinatra::Base
 
         @reviews.each do |review|
             if @name.downcase.strip == (review[1]["productName"]).downcase.strip
-
                 @object1 = review[1]["rating"]
-
-                if params[:rating] == "a"  
-                    @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
-                elsif params[:rating] == "b"            
-                    @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
-                elsif params[:rating] == "c"
-                    @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
-                elsif params[:rating] == "d"
-                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
-                elsif params[:rating] == "e"
-                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
-                else
-                    @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
-                end
             end
         end
 
         if params[:rating] == "a"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
+            @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "b"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
+            @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "c"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
+            @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
         elsif params[:rating] == "d"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
+            @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
         elsif params[:rating] == "e"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
+            @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
         else
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
+            @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
         end
 
         #creates a new hash made up of the values of the two previous hashes added together
@@ -114,7 +105,7 @@ class MyApp < Sinatra::Base
             if (params[:name]).downcase.strip == (review[1]["productName"]).downcase.strip 
 
                 @name = review[1]["productName"]
-                @opinion = review[1]["rating"]
+                @NewReview = review[1]["rating"]
             end
         end
 
