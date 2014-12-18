@@ -34,11 +34,11 @@ class MyApp < Sinatra::Base
     post '/CreateReview' do
 
         @reviews = DATABASE.get_data
+        @name = params[:productName]
 
         @reviews.each do |review|
-            if (params[:productName]).downcase.strip == (review[1]["productName"]).downcase.strip
+            if @name.downcase.strip == (review[1]["productName"]).downcase.strip
 
-                @name = review[1]["productName"]
                 @object1 = review[1]["rating"]
 
                 if params[:rating] == "a"  
@@ -103,7 +103,6 @@ class MyApp < Sinatra::Base
                 
             DATABASE.add("Reviews", {:productName => @name, :rating => @NewReview})
         end
-
 
         redirect('/ExistingReviews')
     end
