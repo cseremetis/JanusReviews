@@ -64,7 +64,17 @@
                 <div class="col-md text-centered">
                     <%@reviews.each do |a|%>
                         <div class="col-md">
-                            <h3><%=(a[1]["productName"]).strip%><h3>
+                            <br>
+                            <a href="/ReviewTemplate">
+                                <button type="button" class="btn btn-default">
+                                    <%@name = (a[1]["productName"]).strip%>
+                                    <%puts @name%>
+                                    <%@NewReview = a[1]["rating"]%>
+                                    <%puts @NewReview%>
+                                    <h3><%=(a[1]["productName"]).strip%><h3>
+                                </button>
+                            </a>
+                            <br>
                         </div>     
                     <%end%>
                 </div>

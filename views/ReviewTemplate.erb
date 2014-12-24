@@ -50,10 +50,17 @@
                                 <input type="submit" value="or CLICK HERE to create a new review" id="updateButton">
                             </form>           
                         <%else%>
+                            <!--used to allow the user to click a button on the existing reviews list and view it in the ReviewTemplate-->
+
+                            <%@reviews.each do |a|%> 
+                                <%if @name == a[1]["productName"]%>
+                                    <%@mutableName = @name%>
+                                <%end%>
+                            <%end%>
 
                             <%@MutableReviews = @NewReview.values%>
                             <div class="row">
-                                <h1><%=@name.upcase%></h1>
+                                <h1><%=@mutableName.upcase%></h1>
                             </div>
                             <br>
                             <br>
