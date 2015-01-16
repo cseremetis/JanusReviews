@@ -34,5 +34,6 @@ PLATFORMS
 DEPENDENCIES
   firebase
   pry
+  rack
   shotgun
   sinatra
