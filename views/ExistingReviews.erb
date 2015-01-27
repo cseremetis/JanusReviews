@@ -6,34 +6,22 @@
     <head>
         <title>Existing Reviews</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
 
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                             <a href="/" class="navbar-link">Home</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                             <a href="about" class="navbar-link">About</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                            <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                             <a href="CreateReview" class="navbar-link">Review An Item</a>
-                        </p>
-                    </div>
+                    <p class="navbar-text navbar-left">
+                        <a href="/" class="navbar-link">Home</a>
+                    </p>
+                    <p class="navbar-text navbar-left">
+                        <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
+                    </p>
+                    <p class="navbar-text navbar-left">
+                        <a href="CreateReview" class="navbar-link">Review A New Item</a>
+                    </p>
                 </div>
             </div>
         </nav>
@@ -64,14 +52,9 @@
                 <div class="col-md text-centered">
                     <%@reviews.each do |a|%>
                         <div class="col-md">
-                            <br>
                             <a href="/ReviewTemplate">
                                 <button type="button" class="btn btn-default">
-                                    <%@name = (a[1]["productName"]).strip%>
-                                    <%puts @name%>
-                                    <%@NewReview = a[1]["rating"]%>
-                                    <%puts @NewReview%>
-                                    <h3><%=(a[1]["productName"]).strip%><h3>
+                                    <h3><%=a.productName.strip%><h3>
                                 </button>
                             </a>
                             <br>

@@ -13,26 +13,15 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                             <a href="about" class="navbar-link">Home</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                            <a href="about" class="navbar-link">About</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                            <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="navbar-text navbar-left">
-                             <a href="CreateReview" class="navbar-link">Review An Item</a>
-                        </p>
-                    </div>
+                    <p class="navbar-text navbar-left">
+                        <a href="/" class="navbar-link">Home</a>
+                    </p>
+                    <p class="navbar-text navbar-left">
+                        <a href="ExistingReviews" class="navbar-link">See Existing Reviews</a>
+                    </p>
+                    <p class="navbar-text navbar-left">
+                        <a href="CreateReview" class="navbar-link">Review A New Item</a>
+                    </p>
                 </div>
             </div>
         </nav>
@@ -43,9 +32,6 @@
                         <%if @name==nil%>
                             <p>The Product you searched does not exist. Please reword your search and try again</p>
                             <img src="http://a.dilcdn.com/bl/wp-content/uploads/sites/8/babyzone/2013/04/baby-boy-crying-photo-420x420-ts-56570356.jpg" id="baby">
-                            <br>
-                            <br>
-                            <br>
                             <form class="input" action="/Defer" method="POST">
                                 <input type="submit" value="or CLICK HERE to create a new review" id="updateButton">
                             </form>           
