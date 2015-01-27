@@ -1,7 +1,11 @@
 source "https://rubygems.org"
 
-gem 'shotgun'
-gem 'pry'
-gem 'sinatra'
-gem 'firebase'
-gem 'rack'
+gem "pry"
+gem "sinatra"
+gem "activerecord"
+gem "sinatra-activerecord"
+gem "rake"
+gem "sqlite3"
+gem "shotgun"
+gem "rack"
+gem "tux"
