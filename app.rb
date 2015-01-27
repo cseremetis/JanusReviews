@@ -42,22 +42,26 @@ class MyApp < Sinatra::Base
             end
         end
 
-        if params[:rating] == "a"
+
+        #creates the first map based on which radio button the user selected
+        case params[:rating]
+
+        when "a"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 1, :b => 0, :c => 0, :d => 0, :e => 0, :f => 0}
-        elsif params[:rating] == "b"
+        when "b"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 1, :c => 0, :d => 0, :e => 0, :f => 0}
-        elsif params[:rating] == "c"
+        when "c"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 1, :d => 0, :e => 0, :f => 0}
-        elsif params[:rating] == "d"
+        when "d"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 1, :e => 0, :f => 0}
-        elsif params[:rating] == "e"
+        when "e"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 1, :f => 0}
-        else
+        when "f"
             DATABASE.add("Reviews", {:productName => params[:productName], :rating => {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}})
             @object2 = {:a => 0, :b => 0, :c => 0, :d => 0, :e => 0, :f => 1}
         end
