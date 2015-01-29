@@ -26,7 +26,7 @@ class MyApp < Sinatra::Base
     end
 
     get '/ReviewTemplate' do
-        #a page used to display all the reviews for a certain product
+        #this is a page used to display all the reviews for a certain product
         erb(:ReviewTemplate)
     end
 
@@ -42,63 +42,27 @@ class MyApp < Sinatra::Base
 
         #checks to see if the product already exists
         @every.each do |a|
-            if params[:productName] == a.productName
-                #updates the original product review
-            else
-                @product = Product.new
-                @product.productName = params[:productName]
+            if  params[:productName].downcase.strip == a.productName.downcase.strip
+                #updates original product review
+                @change = Product.where(:productName.downcase => params[:productName].downcase.strip)
 
-                #assigns face values based on which radio button is selected
+                #updates based on radio button input
                 case params[:rating]
                 when "a"
-                    @product.face1 = 1
-                    @product.face2 = 0
-                    @product.face3 = 0
-                    @product.face4 = 0
-                    @product.face5 = 0
-                    @product.face6 = 0
-
+                   @change[1] += 1
                 when "b"
-                    @product.face1 = 0
-                    @product.face2 = 1
-                    @product.face3 = 0
-                    @product.face4 = 0
-                    @product.face5 = 0
-                    @product.face6 = 0
-            
+                    @change[2] += 1
                 when "c"
-                    @product.face1 = 0
-                    @product.face2 = 0
-                    @product.face3 = 1
-                    @product.face4 = 0
-                    @product.face5 = 0
-                    @product.face6 = 0
-            
+                    @change[3]+= 1
                 when "d"
-                    @product.face1 = 0
-                    @product.face2 = 0
-                    @product.face3 = 0
-                    @product.face4 = 1
-                    @product.face5 = 0
-                    @product.face6 = 0
-                
+                    @change[4] += 1
                 when "e"
-                    @product.face1 = 0
-                    @product.face2 = 0
-                    @product.face3 = 0
-                    @product.face4 = 0
-                    @product.face5 = 1
-                    @product.face6 = 0
-
+                    @change[5] += 1
                 when "f"
-                    @product.face1 = 0
-                    @product.face2 = 0
-                    @product.face3 = 0
-                    @product.face4 = 0
-                    @product.face5 = 0
-                    @product.face6 = 1
+                    @change[6] += 1
                 end
-                @product.save 
+                puts @change
+                @change.save 
             end
         end
         
