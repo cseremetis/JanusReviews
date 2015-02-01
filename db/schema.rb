@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127043557) do
+ActiveRecord::Schema.define(version: 20150201163309) do
 
   create_table "products", force: :cascade do |t|
     t.string  "productName"
-    t.integer "face1"
-    t.integer "face2"
-    t.integer "face3"
-    t.integer "face4"
-    t.integer "face5"
-    t.integer "face6"
+    t.integer "face1",       default: 0
+    t.integer "face2",       default: 0
+    t.integer "face3",       default: 0
+    t.integer "face4",       default: 0
+    t.integer "face5",       default: 0
+    t.integer "face6",       default: 0
   end
 
 end
