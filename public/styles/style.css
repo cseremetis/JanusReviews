@@ -3,7 +3,7 @@
 
 body{
   padding-top: 70px;
-  background: url(http://d13pix9kaak6wt.cloudfront.net/background/webdesign_1338484318_44.jpg) no-repeat center center fixed; 
+  background: url(http://www.fovitec.com/images/Product/large/SP40-044.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,6 +42,11 @@ h1{
 /*review labels on ReviewTemplate page*/
 .viewed_reviews{
   text-align: center;
+}
+
+/*h1 label on ReviewTemplate page*/
+.review_label{
+  padding-bottom: 150px;
 }
 
 /*pretty self-explanatory*/
