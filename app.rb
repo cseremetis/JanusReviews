@@ -17,9 +17,9 @@ class MyApp < Sinatra::Base
         #iterates through all existing products to see if the given 
         #product name already exists
         every.each do |a|
-            if value.downcase.strip == a.name.downcase.strip
+            if value.downcase.strip == a.productName.downcase.strip
                 @existing = true
-                @original = a
+                @product = a
             end
         end
     end
@@ -55,16 +55,38 @@ class MyApp < Sinatra::Base
         #checks to see if the product already exists
        check(params[:productName])
 
-       if @existing == true
-            #adjusts original
-        else
-            #creates new
+       #if the product doesn't exist, create a new object
+       if @existing == false
+            @product = Product.new
+            @product.productName = params[:productName]
         end
+
+        #set rating based on radio buttons 
+        case params[:rating]
+
+        when "a"
+            @product.face1 += 1
+        when "b"
+            @product.face2 += 1
+        when "c"
+            @product.face3 += 1
+        when "d"
+            @product.face4 += 1
+        when "e"
+            @product.face5 += 1
+        when "f"
+            @product.face6 += 1    
+        end
+
+            @product.save
         
         redirect('/ExistingReviews')
     end
  
     post '/UpdateReview' do
+
+        check(params[:searchName])
+
         erb(:ReviewTemplate)
     end 
 
