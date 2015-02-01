@@ -3,5 +3,4 @@
 //used to highlight faces when clicked on create review page
 
 function highlight() {
-
 };
