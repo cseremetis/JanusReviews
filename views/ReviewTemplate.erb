@@ -6,7 +6,7 @@
     <head>
         <title>Recent Reviews</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
     
     <body>
@@ -27,9 +27,9 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-md text-centered">
+                <!--<div class="col-md text-centered">-->
                      <h2 class="viewed_reviews">
-                        <%if @name==nil%>
+                        <%if @product==nil%>
                             <p>The Product you searched does not exist. Please reword your search and try again</p>
                             <img src="http://a.dilcdn.com/bl/wp-content/uploads/sites/8/babyzone/2013/04/baby-boy-crying-photo-420x420-ts-56570356.jpg" id="baby">
                             <form class="input" action="/Defer" method="POST">
@@ -38,63 +38,48 @@
                         <%else%>
                             <!--used to allow the user to click a button on the existing reviews list and view it in the ReviewTemplate-->
 
-                            <%@reviews.each do |a|%> 
-                                <%if @name == a[1]["productName"]%>
-                                    <%@mutableName = @name%>
-                                <%end%>
-                            <%end%>
-
-                            <%@MutableReviews = @NewReview.values%>
-                            <div class="row">
-                                <h1><%=@mutableName.upcase%></h1>
+                            <div class="review_label" id="existing">
+                                <h1><%=@product.productName.upcase%></h1>
                             </div>
-                            <br>
-                            <br>
                             <div class="col-xs-2">
                                 <img src="photos/happy5.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[0]%>
+                                <%=@product.face1%>
                             </div>
                             <div class="col-xs-2">
                                 <img src="photos/happy3.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[1]%>
+                                <%=@product.face2%>
                             </div> 
                             <div class="col-xs-2">
                                 <img src="photos/happy6.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[2]%>
+                                <%=@product.face3%>
                             </div>  
                             <div class="col-xs-2">
                                 <img src="photos/happy1.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[3]%>
+                                <%=@product.face4%>
                             </div>              
                             <div class="col-xs-2">
                                 <img src="photos/happy4.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[4]%>
+                                <%=@product.face5%>
                             </div>
                             <div class="col-xs-2">
                                 <img src="photos/happy2.png" class="img-circle">
                                 <br>
-                                <%=@MutableReviews[5]%>
+                                <%=@product.face6%>
                             </div>
                             <div class="row">
                                 <form class="input" action="AddReview" method="POST">
-                                    <br>
-                                    <br>
-                                    <br>
                                     <input type="submit" value="Review This Item" id="updateButton">
                                 </form>
                             </div>  
                         <%end%>
                     </h2>
-                </div>
+                <!--</div>-->
             </div>
-            <br>
-            <br>
-            <br>
         </div>  
     </body>
 </html>
