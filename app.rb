@@ -77,21 +77,21 @@ class MyApp < Sinatra::Base
         when "f"
             @product.face6 += 1    
         end
+        @product.save   
 
-            @product.save
-        
-        redirect('/ExistingReviews')
+        erb(:ReviewTemplate)
+
     end
  
     post '/UpdateReview' do
-
         check(params[:searchName])
 
         erb(:ReviewTemplate)
     end 
 
     post '/AddReview' do
-        redirect('/CreateReview')
+        @product = @newProduct
+        erb(:CreateReview)
     end
 
     post '/Defer' do 
