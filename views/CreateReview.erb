@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--Created November 30, 2014 by Christian Seremetis and Daniel Greenberg-->
+<!--Created November 30, 2014 by Christian Seremetis-->
 <html>
      <head>
         <title>Review an Item</title>
@@ -39,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="col-md text-center">
-                    <p class="inputLabel">Product Name:</p>
+                    <p class="inputLabel">Name:</p>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
             <div class="row">
                 <form class="input" action="/CreateReview" method="POST">
                     <div class="col-md text-center">
-                        <input type="text" name="productName">
+                        <input type="text" name="productName" value=<%@newProduct%>>
                     </div>
                     <div class="col-md text-center">
                         <p class="inputLabel">Rating:</p>

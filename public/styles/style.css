@@ -15,8 +15,17 @@ h1{
   text-align: center;
 }
 
+input{
+  font: caption;
+}
+
 /*all columns*/
 .col-md{
+  padding-bottom: 20px;
+}
+
+/*more column stuff*/
+.col-xs{
   padding-bottom: 20px;
 }
 
@@ -63,9 +72,9 @@ h1{
 /*button on ReviewTemplate form asking if the user wants to update the product reviews*/
 #updateButton{
   text-align: center;
-  font-size: 20px;
-  width: 400px;
-  height: 40px; 
+  font-size: 15px;
+  width: 300px;
+  height: 20px; 
   margin-top: 50px;
 }
 

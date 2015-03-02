@@ -38,7 +38,7 @@
 
                     <p>Search And View Our Reviews Here!</p>
                     <form class="input" action="/UpdateReview" method="POST">
-                        <input type="text" name="searchName">
+                        <input type="text" id="searchBar" name="searchName">
                         <input type="submit" value="View Item">
                     </form>
 
@@ -50,11 +50,18 @@
                 <div class="col-md text-centered">
                     <%@reviews.each do |a|%>
                         <div class="col-md">
-                            <a href="/ReviewTemplate">
-                                <button type="button" class="btn btn-default">
+                            <!--<a href="/ReviewTemplate">-->
+                                <button value=<%a.productName.strip%> id="product_button" type="button" class="btn btn-default" onclick="choose">
                                     <h3><%=a.productName.strip%><h3>
+                                    <script type="text/javascript">
+                                        function choose() {
+                                            var identity = document.getElementById('product_button').value;
+                                            var textSearch = document.getElementById('searchBar');
+                                            textSearch.value = identity;
+                                        };
+                                    </script>
                                 </button>
-                            </a>
+                            <!--</a>-->
                             <br>
                         </div>     
                     <%end%>
