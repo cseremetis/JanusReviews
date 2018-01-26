@@ -1,22 +1,22 @@
-<title>JanusReviews<title>
+<title>JanusReviews</title>
 =======
 
 Generic reviews website designed as a re-modeling of the final project for my "Intro to Software Engineering" course at "the Flatiron School" in NYC
 
-<header>Layout<header>
+<header>Layout</header>
 ========
 
 Product:
 * Has name
 * Has uniqueness
 * Has description
-* Has ratings (see <tt>db/migrate/AddRatingsToProduct<tt> for details)
+* Has ratings (see <tt>db/migrate/AddRatingsToProduct</tt> for details)
 
 Rating
 * Belongs to Product
 * An array-type variable in the products table
 
-<header>System Details:<header>
+<header>System Details:</header>
 =========
 
 * Ruby version: 2.4.3
@@ -31,4 +31,4 @@ Rating
 
 * Webhost: Heroku
 
-* To test, run <tt>rails server<tt>
+* To test, run <tt>rails server</tt>
