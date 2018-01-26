@@ -1,28 +1,34 @@
-== README
+<title>JanusReviews<title>
+=======
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Generic reviews website designed as a re-modeling of the final project for my "Intro to Software Engineering" course at "the Flatiron School" in NYC
 
-Things you may want to cover:
+<header>Layout<header>
+========
 
-* Ruby version
+Product:
+* Has name
+* Has uniqueness
+* Has description
+* Has ratings (see <tt>db/migrate/AddRatingsToProduct<tt> for details)
 
-* System dependencies
+Rating
+* Belongs to Product
+* An array-type variable in the products table
 
-* Configuration
+<header>System Details:<header>
+=========
 
-* Database creation
+* Ruby version: 2.4.3
 
-* Database initialization
+* System dependencies: Rails 4.2.5
 
-* How to run the test suite
+* Database creation: PostgreSQL 
+
+* Database initialization: see migrations
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Webhost: Heroku
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* To test, run <tt>rails server<tt>
