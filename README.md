@@ -1,9 +1,9 @@
-<title>JanusReviews</title>
+JanusReviews
 =======
 
 Generic reviews website designed as a re-modeling of the final project for my "Intro to Software Engineering" course at "the Flatiron School" in NYC
 
-<header>Layout</header>
+Layout
 ========
 
 Product:
@@ -16,7 +16,7 @@ Rating
 * Belongs to Product
 * An array-type variable in the products table
 
-<header>System Details:</header>
+System Details:
 =========
 
 * Ruby version: 2.4.3
