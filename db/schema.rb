@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201163309) do
+ActiveRecord::Schema.define(version: 20170209234152) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string  "productName"
-    t.integer "face1",       default: 0
-    t.integer "face2",       default: 0
-    t.integer "face3",       default: 0
-    t.integer "face4",       default: 0
-    t.integer "face5",       default: 0
-    t.integer "face6",       default: 0
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "ratings",     default: [0, 0, 0, 0, 0, 0],              array: true
+    t.boolean  "visible",     default: true
   end
 
 end

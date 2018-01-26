@@ -1,0 +1,80 @@
+//generic font for whole website
+
+@import url('https://fonts.googleapis.com/css?family=Sansita');
+
+$font: 'Sansita', sans-serif;
+$theme_color: #e65c00;
+
+nav{
+	li{
+		margin-top: 5px;
+	}
+}
+
+textarea{
+	height: 250px !important;
+}
+
+input[type=text]{
+	width: 200px;
+}
+
+label{
+	font-size: 30px;
+}
+
+form{
+	img:hover{
+		opacity: 0.5;
+	}
+}
+
+input[type='radio']{
+	visibility: hidden;
+}
+
+.wrapper{
+	font-family: $font;
+	margin: 50px 50px 150px 50px;
+	b, h1, h2{
+		color: $theme_color;
+	}
+	h1{
+		font-size: 70px;
+	}
+}
+
+.faces{
+	img{
+		height: 150px;
+		width: 150px;
+	}
+
+	margin-top: 100px;
+}
+
+.notice-message{
+	margin-top: 50px;
+	border-radius: 20px;
+	width: 750px;
+	height: 100px;
+}
+
+#textField{
+	margin-top: 10px;
+}
+
+#update_button{
+	margin-top: 40px;
+	font-size: 25px;
+}
+
+#coverPhoto{
+	height: 300px;
+	width: 800px;
+	margin-top: 100px;
+}
+
+#allReviewsHeader{
+	padding-top: 50px;
+}

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Janus</a>
+    </div>
+    <ul class="nav nav-pills">
+      <li><a href="/">Home</a></li>
+      <li><%=link_to 'Create New Review', new_product_path%></li>
+      <li><%=link_to 'View Reviews', '/reviews'%></li>
+      <li>
+      	<%=form_for :searchReviews, url: '/search', class: 'navbar-form navbar-left' do |f|%>	
+      		<%=f.text_field :review, id: 'textField'%>
+      		<%=f.submit 'Search Reviews', class: 'btn btn-default'%>
+      	<%end%>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="row text-center">
+    <h1><%=@product.name.upcase%></h1>
+  </div>
+  <div class="row">
+    <%=form_for :product, url: product_path(@product), method: 'patch' do |f|%>
+      <%=f.label 'Add Rating:'%><br>
+      <br>
+      <!--radio buttons visibility:hidden-->
+      <!--when pictures are clicked, radio buttons are activated-->
+      <!--see assets/javascripts/products.js-->
+      <div class="faces">
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '1', id: 'radio1'%>
+          <%=image_tag '1.jpg', id: 'face1'%>
+        </div>
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '2', id: 'radio2'%>
+          <%=image_tag '2.jpg', id: 'face2'%>
+        </div>
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '3', id: 'radio3'%>
+          <%=image_tag '3.jpg', id: 'face3'%>
+        </div>
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '4', id: 'radio4'%>
+          <%=image_tag '4.jpg', id: 'face4'%>
+        </div>
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '5', id: 'radio5'%>
+          <%=image_tag '5.jpg', id: 'face5'%>
+        </div>
+        <div class="col-lg-2">
+          <%=f.radio_button :ratings, '6', id: 'radio6'%>
+          <%=image_tag '6.jpg', id: 'face6'%>
+        </div>
+      </div>
+      <%=f.submit 'Update Product', class: 'btn btn-default', id: 'update_button'%>
+    <%end%>
+  </div>
+</div>

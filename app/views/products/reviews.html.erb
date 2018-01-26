@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Janus</a>
+    </div>
+    <ul class="nav nav-pills">
+      <li><a href="/">Home</a></li>
+      <li><%=link_to 'Create New Review', new_product_path%></li>
+      <li class="active"><%=link_to 'View Reviews', '/reviews'%></li>
+      <li>
+      	<%=form_for :searchReviews, url: '/search', class: 'navbar-form navbar-left' do |f|%>	
+      		<%=f.text_field :review, id: 'textField'%>
+      		<%=f.submit 'Search Reviews', class: 'btn btn-default'%>
+      	<%end%>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="wrapper">
+	<h1 id="allReviewsHeader">All Product Reviews:</h1>
+  <% if flash[:notice]%>
+  <div class="notice-message">
+    <h3><%=flash[:notice]%></h3>
+  </div>
+  <%end%>
+	<br>
+	<%@products.each do |p|%>
+		<h3><%=link_to p.name.upcase, product_path(p.id)%></h3>
+	<%end%>
+</div>

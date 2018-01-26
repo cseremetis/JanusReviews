@@ -1,0 +1,21 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+#
+# Install the pg driver:
+
+default: &default
+  database: janus
+  username: <%= ENV['DATABASE-USERNAME'] %>
+  password: <%= ENV['DATABASE-PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 500
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

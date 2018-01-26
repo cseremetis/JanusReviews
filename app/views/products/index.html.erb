@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Janus</a>
+    </div>
+    <ul class="nav nav-pills">
+      <li class="active"><a href="/">Home</a></li>
+      <li><%=link_to 'Create New Review', new_product_path%></li>
+      <li><%=link_to 'View Reviews', '/reviews'%></li>
+      <li>
+      	<%=form_for :searchReviews, url: '/search', class: 'navbar-form navbar-left' do |f|%>	
+      		<%=f.text_field :review, id: 'textField'%>
+      		<%=f.submit 'Search Reviews', class: 'btn btn-default'%>
+      	<%end%>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="wrapper">
+	<div class="row text-center">
+		<h1 id="opening_title">WELCOME TO JANUS!</h1>
+	</div>
+	<div class="container">
+		<div class="row text-center">
+			<h3>A quality review site for movies, TV Shows, restaurants, and miscellaneous products. All ratings conducted on a 0-10 scale using the famous Wong-Baker pain measurement tool.</h3>
+		</div>
+		<div class="row text-center">
+			<%=image_tag 'faces.png', id: 'coverPhoto'%>
+		</div>
+		<br>
+		<%if @featured1 && @featured2%>
+		<div class="row text-center">
+			<h2>Featured Reviews:</h2>
+			<br>
+			<div class="col-lg-6">
+				<%@featured1.each do |f|%>
+				<h3><%=link_to f.name.upcase, product_path(f.id)%></h3>
+				<%end%>
+			</div>
+			<div class="col-lg-6">
+				<%@featured2.each do |f|%>
+				<h3><%=link_to f.name.upcase, product_path(f.id)%></h3>
+				<%end%>
+			</div>
+		</div>
+		<%end%>
+	</div>
+</div>
